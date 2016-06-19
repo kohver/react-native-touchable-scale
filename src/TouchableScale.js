@@ -1,8 +1,5 @@
-import React from 'react-native';
-const {
-    TouchableWithoutFeedback,
-    Animated,
-} = React;
+import React from 'react';
+import { TouchableWithoutFeedback, Animated } from 'react-native';
 
 /**
  * @typedef {Object} TouchableWithoutFeedbackProps
@@ -30,11 +27,8 @@ const {
  * @property {number} [activeScale=0.9]
  */
 export default class TouchableScale extends React.Component {
-    /**
-     * @param {TouchableScaleProps} props
-     */
-    constructor(props) {
-        super(props);
+    constructor(...args) {
+        super(...args);
 
         this.onPressIn = this.onPressIn.bind(this);
         this.onPressOut = this.onPressOut.bind(this);
@@ -89,8 +83,8 @@ export default class TouchableScale extends React.Component {
             friction: 3,
         }).start();
 
-        if (props.onPressIn) {
-            props.onPressIn(...args);
+        if (props.onPressOut) {
+            props.onPressOut(...args);
         }
     }
 }

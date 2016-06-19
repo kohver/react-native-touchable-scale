@@ -1,9 +1,10 @@
 {
   "name": "react-native-touchable-scale",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Like TouchableOpacity, but scale.",
   "main": "index.js",
   "peerDependencies": {
+    "react": ">=0.13.2 || ^0.14 || ^15.0.0",
     "react-native": ">=0.19.0"
   },
   "scripts": {
