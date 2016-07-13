@@ -24,15 +24,24 @@ import { TouchableWithoutFeedback, Animated } from 'react-native';
 /**
  * @typedef {TouchableWithoutFeedbackProps} TouchableScaleProps
  * @property {Object} [style]
+ * @property {number} [defaultScale=1]
  * @property {number} [activeScale=0.9]
+ * @property {number} [tension=150]
+ * @property {number} [friction=3]
+ * @property {number} [pressInTension]
+ * @property {number} [pressInFriction]
+ * @property {number} [pressOutTension]
+ * @property {number} [pressOutFriction]
  */
 export default class TouchableScale extends React.Component {
     constructor(...args) {
         super(...args);
+        /** @type {TouchableScaleProps} */
+        const props = this.props;
 
         this.onPressIn = this.onPressIn.bind(this);
         this.onPressOut = this.onPressOut.bind(this);
-        this.scaleAnimation = new Animated.Value(1);
+        this.scaleAnimation = new Animated.Value(props.defaultScale);
     }
 
     render() {
@@ -41,6 +50,7 @@ export default class TouchableScale extends React.Component {
 
         return (
             <TouchableWithoutFeedback
+                // todo: pass only TouchableWithoutFeedback's props.
                 {...props}
                 onPressIn={this.onPressIn}
                 onPressOut={this.onPressOut}
@@ -61,11 +71,13 @@ export default class TouchableScale extends React.Component {
     onPressIn(...args) {
         /** @type {TouchableScaleProps} */
         const props = this.props;
+        const tension = typeof props.pressInTension !== 'undefined' ? props.pressInTension : props.tension;
+        const friction = typeof props.pressInFriction !== 'undefined' ? props.pressInFriction : props.friction;
 
         Animated.spring(this.scaleAnimation, {
-            toValue: props.activeScale || 0.9,
-            tension: 150,
-            friction: 5,
+            toValue: props.activeScale,
+            tension: tension,
+            friction: friction,
         }).start();
 
         if (props.onPressIn) {
@@ -76,11 +88,13 @@ export default class TouchableScale extends React.Component {
     onPressOut(...args) {
         /** @type {TouchableScaleProps} */
         const props = this.props;
+        const tension = typeof props.pressOutTension !== 'undefined' ? props.pressOutTension : props.tension;
+        const friction = typeof props.pressOutFriction !== 'undefined' ? props.pressOutFriction : props.friction;
 
         Animated.spring(this.scaleAnimation, {
-            toValue: 1,
-            tension: 150,
-            friction: 3,
+            toValue: props.defaultScale,
+            tension: tension,
+            friction: friction,
         }).start();
 
         if (props.onPressOut) {
@@ -88,3 +102,23 @@ export default class TouchableScale extends React.Component {
         }
     }
 }
+
+TouchableScale.propTypes = {
+    ...TouchableWithoutFeedback.propTypes,
+    style: Animated.View.propTypes.style,
+    defaultScale: React.PropTypes.number.isRequired,
+    activeScale: React.PropTypes.number.isRequired,
+    tension: React.PropTypes.number.isRequired,
+    friction: React.PropTypes.number.isRequired,
+    pressInTension: React.PropTypes.number,
+    pressInFriction: React.PropTypes.number,
+    pressOutTension: React.PropTypes.number,
+    pressOutFriction: React.PropTypes.number,
+};
+
+TouchableScale.defaultProps = {
+    defaultScale: 1,
+    activeScale: 0.9,
+    tension: 150,
+    friction: 3,
+};

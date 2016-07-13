@@ -5,7 +5,15 @@
 | Props                  | Required      | Default Value |
 | -------------          | ------------- | ------------- |
 | [TouchableWithoutFeedback props...](https://facebook.github.io/react-native/docs/touchablewithoutfeedback.html#props)
-| **activeScale** number | No            | 0.9           | 
+| **style** style             | No            |               | 
+| **defaultScale** number     | No            | 1             | 
+| **activeScale** number      | No            | 0.9           | 
+| **tension** number          | No            | 150           | 
+| **friction** number         | No            | 3             | 
+| **pressInTension** number   | No            |               | 
+| **pressInFriction** number  | No            |               | 
+| **pressOutTension** number  | No            |               | 
+| **pressOutFriction** number | No            |               | 
 
 ## Install
 
