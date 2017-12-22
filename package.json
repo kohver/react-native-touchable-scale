@@ -23,8 +23,5 @@
   "bugs": {
     "url": "https://github.com/kohver/react-native-touchable-scale/issues"
   },
-  "homepage": "https://github.com/kohver/react-native-touchable-scale#readme",
-  "dependencies": {
-    "prop-types": "^15.6.0"
-  }
+  "homepage": "https://github.com/kohver/react-native-touchable-scale#readme"
 }
