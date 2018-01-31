@@ -79,6 +79,7 @@ export default class TouchableScale extends React.Component {
             toValue: props.activeScale,
             tension: tension,
             friction: friction,
+            useNativeDriver: true,
         }).start();
 
         if (props.onPressIn) {
@@ -96,6 +97,7 @@ export default class TouchableScale extends React.Component {
             toValue: props.defaultScale,
             tension: tension,
             friction: friction,
+            useNativeDriver: true,
         }).start();
 
         if (props.onPressOut) {
