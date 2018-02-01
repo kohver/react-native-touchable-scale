@@ -14,6 +14,7 @@
 | **pressInFriction** number  | No            |               | 
 | **pressOutTension** number  | No            |               | 
 | **pressOutFriction** number | No            |               | 
+| **useNativeDriver** boolean | No            | true          | 
 
 ## Install
 
