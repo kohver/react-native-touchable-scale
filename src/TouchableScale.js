@@ -33,6 +33,7 @@ import { TouchableWithoutFeedback, Animated } from 'react-native';
  * @property {number} [pressInFriction]
  * @property {number} [pressOutTension]
  * @property {number} [pressOutFriction]
+ * @property {boolean} [useNativeDriver]
  */
 export default class TouchableScale extends React.Component {
     constructor(...args) {
@@ -79,6 +80,7 @@ export default class TouchableScale extends React.Component {
             toValue: props.activeScale,
             tension: tension,
             friction: friction,
+            useNativeDriver: props.useNativeDriver,
         }).start();
 
         if (props.onPressIn) {
@@ -96,6 +98,7 @@ export default class TouchableScale extends React.Component {
             toValue: props.defaultScale,
             tension: tension,
             friction: friction,
+            useNativeDriver: props.useNativeDriver,
         }).start();
 
         if (props.onPressOut) {
@@ -115,6 +118,7 @@ TouchableScale.propTypes = {
     pressInFriction: PropTypes.number,
     pressOutTension: PropTypes.number,
     pressOutFriction: PropTypes.number,
+    useNativeDriver: PropTypes.bool,
 };
 
 TouchableScale.defaultProps = {
@@ -122,4 +126,5 @@ TouchableScale.defaultProps = {
     activeScale: 0.9,
     tension: 150,
     friction: 3,
+    useNativeDriver: true,
 };
