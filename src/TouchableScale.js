@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { TouchableWithoutFeedback, Animated } from 'react-native';
+import { TouchableWithoutFeedback, Animated, ViewPropTypes } from 'react-native';
 
 /**
  * @typedef {Object} TouchableWithoutFeedbackProps
@@ -109,7 +109,7 @@ export default class TouchableScale extends React.Component {
 
 TouchableScale.propTypes = {
     ...TouchableWithoutFeedback.propTypes,
-    style: Animated.View.propTypes.style,
+    style: ViewPropTypes.style,
     defaultScale: PropTypes.number.isRequired,
     activeScale: PropTypes.number.isRequired,
     tension: PropTypes.number.isRequired,
