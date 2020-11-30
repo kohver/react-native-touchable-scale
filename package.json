@@ -1,6 +1,6 @@
 {
   "name": "react-native-touchable-scale",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Like TouchableOpacity, but scale.",
   "main": "index.js",
   "types": "react-native-touchable-scale.d.ts",
