@@ -1,6 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types'
-import { TouchableWithoutFeedback, Animated, ViewPropTypes } from 'react-native';
+import PropTypes from 'prop-types';
+import { TouchableWithoutFeedback, Animated } from 'react-native';
+import { ViewPropTypes } from 'deprecated-react-native-prop-types';
 
 /**
  * @typedef {Object} TouchableWithoutFeedbackProps
