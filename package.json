@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/kohver/react-native-touchable-scale#readme",
   "dependencies": {
-    "prop-types": "^15.6.0"
+    "prop-types": "^15.6.0",
+    "deprecated-react-native-prop-types": "^2.3.0"
   }
 }
